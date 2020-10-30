@@ -38,3 +38,6 @@ cypress/integration/examples
 cypress/screenshots
 cypress/videos
 
+# firebase
+.firebaserc
+

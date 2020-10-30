@@ -1,18 +1,32 @@
-import React from 'react'
-import { render } from '../testUtils'
+import { fireEvent, render, waitFor } from '../testUtils'
 import { Home } from '../../pages/index'
+import { when } from 'jest-when'
+import firebase from 'firebase/app'
 
 describe('Home page', () => {
-  it('matches snapshot', () => {
-    const { asFragment } = render(<Home />, {})
-    expect(asFragment()).toMatchSnapshot()
+  beforeEach(() => {
+    const mockSignin = jest.spyOn(firebase.auth(), 'signInWithEmailAndPassword')
+
+    when(mockSignin)
+      .calledWith('dev@eventpop.me', 'password')
+      .mockResolvedValue({
+        user: { email: 'dev@eventpop.me' },
+      } as firebase.auth.UserCredential)
   })
 
-  it('renders with buttons alert', () => {
-    const { getByText } = render(<Home />, {})
+  it('handles login with firebase emulated account', async () => {
+    const { getByLabelText, getByRole, getByText } = render(<Home />, {})
 
-    getByText('Emotion CSS')
-    getByText('Emotion React')
-    getByText('Chakra-UI')
+    fireEvent.change(getByLabelText(/Email/i), {
+      target: { value: 'dev@eventpop.me' },
+    })
+
+    fireEvent.change(getByLabelText(/Password/i), {
+      target: { value: 'password' },
+    })
+
+    fireEvent.click(getByRole('button', { name: /Login/i }))
+
+    await waitFor(() => getByText(/Welcome back dev@eventpop.me!/i))
   })
 })

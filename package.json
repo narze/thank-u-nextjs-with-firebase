@@ -19,7 +19,8 @@
     "cy:ci": "start-test start 3000 cy:run:headless",
     "e2e": "start-test dev 3000 cy:open",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "firebase:dev": "firebase emulators:start"
   },
   "husky": {
     "hooks": {
@@ -47,11 +48,14 @@
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
+    "dotenv-flow": "^3.2.0",
     "emotion": "^10.0.27",
     "emotion-theming": "^10.0.27",
+    "firebase": "^8.0.0",
     "next": "^10.0.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-hook-form": "^6.9.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
@@ -62,6 +66,7 @@
     "@storybook/react": "^6.0.27",
     "@tailwindcss/ui": "^0.6.2",
     "@testing-library/cypress": "^7.0.1",
+    "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.0",
     "@types/jest": "^26.0.15",
     "@types/node": "^14.14.6",
@@ -77,10 +82,12 @@
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-react": "^7.21.5",
+    "firebase-tools": "^8.14.1",
     "husky": "^4.3.0",
     "jest": "^26.6.1",
     "jest-emotion": "^10.0.32",
     "jest-watch-typeahead": "^0.6.1",
+    "jest-when": "^3.0.0",
     "lint-staged": "^10.5.0",
     "prettier": "^2.1.2",
     "react-is": "^17.0.1",
