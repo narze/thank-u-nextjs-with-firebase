@@ -1,6 +1,6 @@
-# Thank u, Next.js
+# Thank u, Next.js (with Firebase)
 
-[![codecov](https://codecov.io/gh/narze/thank-u-nextjs/branch/master/graph/badge.svg?token=6AIOFCOAPT)](undefined)
+[![codecov](https://codecov.io/gh/narze/thank-u-nextjs-with-firebase/branch/master/graph/badge.svg?token=GRZ9QIAyGR)](undefined)
 
 Bootstrap a developer-friendly (?) NextJS app configured with:
 
@@ -16,8 +16,17 @@ Bootstrap a developer-friendly (?) NextJS app configured with:
 - [ts-jest](https://github.com/kulshekhar/ts-jest)
 - [Cypress](http://cypress.io/) and [Cypress Testing Library](https://github.com/testing-library/cypress-testing-library)
 - [Storybook](https://storybook.js.org)
+- [Firebase](https://firebase.google.com) with [Emulator](https://firebase.google.com/docs/emulator-suite)
 
 This template is built from [examples/with-tailwindcss-emotion](https://github.com/vercel/next.js/blob/canary/examples/with-tailwindcss-emotion/README.md) & [examples/with-typescript-eslint-jest](https://github.com/vercel/next.js/blob/canary/examples/with-typescript-eslint-jest/README.md) then added some more sensible packages.
+
+## Setup
+
+- `yarn`
+- `yarn run firebase init`
+  - After authentication, either choosing existing Firebase project, or create new one
+  - Choose only `Emulators` feature, using `<space>`
+  - Then choose only `Authentication Emulator`
 
 ## Development Workflow
 
